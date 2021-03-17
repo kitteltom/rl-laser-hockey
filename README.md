@@ -11,6 +11,8 @@ The following figure shows some rollouts of the TD3 agent, playing against the s
 
 Minimal requirements are listed in the file `requirements.txt`. Additionally, the laser-hockey environment needs to be installed. This con be done by running: `python -m pip install git+https://github.com/martius-lab/laser-hockey-env.git`. 
 
+(The project was developed on MacOS with Python 3.7.9)
+
 ### Start training:
 
 To start training, run the file `main.py` as follows: `python main.py --trial <trial_number>`. 
