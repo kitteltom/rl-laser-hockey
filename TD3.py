@@ -6,10 +6,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-try:
-    from utils import normalize
-except:
-    from .utils import normalize
+from utils import normalize
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -100,10 +97,7 @@ class TD3(object):
 
         # Load observation mean and std
         self.normalize_obs = normalize_obs
-        try:
-            self.obs_mean, self.obs_std = np.load('./results/observation_moments.npy')
-        except:
-            self.obs_mean, self.obs_std = np.load('./Thomas_Kittel/results/observation_moments.npy')
+        self.obs_mean, self.obs_std = np.load('./results/observation_moments.npy')
         self.obs_mean, self.obs_std = self.obs_mean.astype(np.float32), self.obs_std.astype(np.float32)
 
         self.total_it = 0

@@ -7,7 +7,7 @@ PER [[2]](#2).
 <a id="1">[1]</a>
 S. Fujimoto, H. Hoof, and D. Meger. 
 Addressing function approximation error in actor-critic methods.
-International Conference on Machine Learning, pages 1587-1596, 2018.
+ICML, 2018.
 
 <a id="2">[2]</a>
 T. Schaul, J. Quan, I. Antonoglou, and D. Silver.

@@ -51,33 +51,35 @@ def eval_policy(policy, seed, max_episode_timesteps, eval_episodes=20):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--policy", default="TD3")  # Policy name (TD3)
-    parser.add_argument("--env", default="Hockey-v0_NORMAL")  # OpenAI gym environment name
-    parser.add_argument("--trial", default=0, type=int)  # Trial number
-    parser.add_argument("--seed", default=42, type=int)  # Sets Gym, PyTorch and Numpy seeds
-    parser.add_argument("--start_timesteps", default=5e4, type=int)  # Time steps initial random policy is used
-    parser.add_argument("--eval_freq", default=5e3, type=int)  # How often (time steps) we evaluate
-    parser.add_argument("--self_play_freq", default=15e5, type=int)  # Add current agent to list of opponents
-    parser.add_argument("--max_timesteps", default=1e6, type=int)  # Max time steps to run environment
-    parser.add_argument("--max_episode_timesteps", default=500, type=int)  # Max time steps per episode
-    parser.add_argument("--max_buffer_size", default=1e6, type=int)  # Size of the replay buffer
-    parser.add_argument("--expl_noise", default=0.15, type=float)  # Std of Gaussian exploration noise
-    parser.add_argument("--hidden_dim", default=256, type=int)  # Hidden dim of actor and critic nets
-    parser.add_argument("--batch_size", default=256, type=int)  # Batch size for both actor and critic
-    parser.add_argument("--learning_rate", default=3e-4, type=float)  # Learning rate
-    parser.add_argument("--discount", default=0.99, type=float)  # Discount factor
-    parser.add_argument("--tau", default=0.01, type=float)  # Target network update rate
-    parser.add_argument("--policy_noise", default=0.1, type=float)  # Noise added to target policy during critic update
-    parser.add_argument("--noise_clip", default=0.5, type=float)  # Range to clip target policy noise
-    parser.add_argument("--policy_freq", default=2, type=int)  # Frequency of delayed policy updates
-    parser.add_argument("--prioritized_replay", action="store_true")  # Use prioritized experience replay
-    parser.add_argument("--alpha", default=0.6, type=float)  # Amount of prioritization in PER
-    parser.add_argument("--beta", default=1.0, type=float)  # Amount of importance sampling in PER
-    parser.add_argument("--beta_schedule", default="")  # Annealing schedule for beta in PER
-    parser.add_argument("--normalize_obs", action="store_true")  # Use observation normalisation
-    parser.add_argument("--only_win_reward", action="store_true")  # Rewards only wins
-    parser.add_argument("--early_stopping", action="store_true")  # Use early stopping
-    parser.add_argument("--load_model", default="")  # Model load file name, "" doesn't load, "default" uses file_name
+    parser.add_argument("--policy", default="TD3", help='Policy name (TD3)')
+    parser.add_argument("--env", default="Hockey-v0_NORMAL", help='Gym environment name')
+    parser.add_argument("--trial", default=0, type=int, help='Trial number')
+    parser.add_argument("--seed", default=42, type=int, help='Sets Gym, PyTorch and Numpy seeds')
+    parser.add_argument("--start_timesteps", default=5e4, type=int, help='Time steps initial random policy is used')
+    parser.add_argument("--eval_freq", default=5e3, type=int, help='How often (time steps) it will be evaluated')
+    parser.add_argument("--self_play_freq", default=15e5, type=int, help='Add current agent to list of opponents')
+    parser.add_argument("--max_timesteps", default=1e6, type=int, help='Max time steps to run environment')
+    parser.add_argument("--max_episode_timesteps", default=500, type=int, help='Max time steps per episode')
+    parser.add_argument("--max_buffer_size", default=1e6, type=int, help='Size of the replay buffer')
+    parser.add_argument("--expl_noise", default=0.15, type=float, help='Std of Gaussian exploration noise')
+    parser.add_argument("--hidden_dim", default=256, type=int, help='Hidden dim of actor and critic nets')
+    parser.add_argument("--batch_size", default=256, type=int, help='Batch size for both actor and critic')
+    parser.add_argument("--learning_rate", default=3e-4, type=float, help='Learning rate')
+    parser.add_argument("--discount", default=0.99, type=float, help='Discount factor')
+    parser.add_argument("--tau", default=0.01, type=float, help='Target network update rate')
+    parser.add_argument("--policy_noise", default=0.1, type=float,
+                        help='Noise added to target policy during critic update')
+    parser.add_argument("--noise_clip", default=0.5, type=float, help='Range to clip target policy noise')
+    parser.add_argument("--policy_freq", default=2, type=int, help='Frequency of delayed policy updates')
+    parser.add_argument("--prioritized_replay", action="store_true", help='Use prioritized experience replay')
+    parser.add_argument("--alpha", default=0.6, type=float, help='Amount of prioritization in PER')
+    parser.add_argument("--beta", default=1.0, type=float, help='Amount of importance sampling in PER')
+    parser.add_argument("--beta_schedule", default="", help='Annealing schedule for beta in PER')
+    parser.add_argument("--normalize_obs", action="store_true", help='Use observation normalisation')
+    parser.add_argument("--only_win_reward", action="store_true", help='Rewards only wins')
+    parser.add_argument("--early_stopping", action="store_true", help='Use early stopping')
+    parser.add_argument("--load_model", default="",
+                        help='Model load file name, \"\" does not load')
     args = parser.parse_args()
 
     file_name = f"{args.policy}_{args.env}_{args.trial}"
