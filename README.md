@@ -2,7 +2,7 @@
 
 Solves the laser-hockey gym environment [[1]](#1) with Reinforcement Learning (RL) using the Twin Delayed Deep Deterministic policy gradient algorithm (TD3) [[2]](#2). In addition to that, prioritized experience replay (PER) [[3]](#3) and observation normalization [[4]](#4) have been implemented to analyze the effect of these modifications on TD3 in the laser-hockey environment. 
 
-The following figure shows some rollouts of the TD3 agent, playing against the strong basic opponent of the laser-hockey environment:
+The following figure shows some rollouts of the TD3 agent (red), playing against the strong basic opponent of the laser-hockey environment (blue):
 
 ![(A gif showing rollouts of the TD3 algorithm in the laser-hockey environment.)](./rollouts/SP-TD3_vs_Strong_Opponent.gif)
 ## How to use
