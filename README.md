@@ -1,5 +1,7 @@
 # rl-laser-hockey
-Solves the laser hockey gym environment with Reinforcement Learning using the TD3 algorithm [[1]](#1). 
+Solves the laser hockey gym environment with Reinforcement Learning using the TD3 algorithm [[1]](#1).
+
+![Alt Text](./rollouts/SP-TD3_vs_Strong_Opponent.gif)
 
 PER [[2]](#2).
 
